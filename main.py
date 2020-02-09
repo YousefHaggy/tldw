@@ -1,10 +1,11 @@
 import spacy
 import requests
+from flask_cors import CORS 
 from flask import Flask, request
 from youtube_transcript_api import YouTubeTranscriptApi
 
 app = Flask(__name__)
-
+CORS(app)
 SMMRY_API_KEY = "92E708A8B3"
 
 def get_transcript(video_id, percent):
@@ -40,7 +41,8 @@ def get_summary(transcript, percent, num_sentences):
 def summarize():
 	video_id = request.args.get("video_id")
 	percent_to_summarize= request.args.get("percent")
-	return get_transcript(video_id, percent_to_summarize)
+	summary=get_transcript(video_id, percent_to_summarize)
+	return {"summary":summary}
 
 
 

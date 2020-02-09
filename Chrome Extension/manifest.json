@@ -9,7 +9,7 @@
 		"tabs","activeTab"
 	],
 	"content_scripts":[{
-		"matches":["http://*.youtube.com/*"],
+		"matches":["*://*.youtube.com/*"],
 		"js": ["content.js"]
 	}
 	],
