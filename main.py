@@ -11,7 +11,7 @@ def get_transcript(video_id, percent):
 	transcript = {}
 	try:
 		transcript = YouTubeTranscriptApi.get_transcript(
-			video_id,languages=["en"])
+					 video_id,languages=["en"])
 	except:
 		return {"message":"No transcript found"}
 	transcript_string = " "

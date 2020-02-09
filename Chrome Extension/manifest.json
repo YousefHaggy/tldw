@@ -1,0 +1,17 @@
+{
+	"name":"TlDW",
+	"version":"1.0",
+	"description":"Generate Summaries of Youtube videos!",
+	"browser_action":{
+		"default_popup":"popup.html"
+	},
+	"permissions":[
+		"tabs","activeTab"
+	],
+	"content_scripts":[{
+		"matches":["http://*.youtube.com/*"],
+		"js": ["content.js"]
+	}
+	],
+	"manifest_version":2
+}
