@@ -14,7 +14,7 @@ def get_transcript(video_id, percent):
 		transcript = YouTubeTranscriptApi.get_transcript(
 					 video_id,languages=["en"])
 	except:
-		return {"message":"No transcript found"}
+		return {"error":"No transcript found"}
 	transcript_string = " "
 	for line in transcript:
 		transcript_string += line['text']+" "
@@ -42,7 +42,7 @@ def summarize():
 	video_id = request.args.get("video_id")
 	percent_to_summarize= request.args.get("percent")
 	summary=get_transcript(video_id, percent_to_summarize)
-	return {"summary":summary}
+	return {"result":summary}
 
 
 
