@@ -1,7 +1,7 @@
 # TLDW - Youtube Summary Generating Chrome Extension
 
 ### Running the API
-`docker run -p 5000:5000 yousefhaggy/tldw`
+`docker run -d -p 5000:5000 yousefhaggy/tldw`
 ### Installing the chrome extension
 1. Clone this repository
   `git clone https://github.com/YousefHaggy/tldw.git`
