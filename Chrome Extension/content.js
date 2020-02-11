@@ -10,3 +10,4 @@ chrome.runtime.onMessage.addListener(
 		let primaryInner = document.getElementById("info");
 		primaryInner.appendChild(newDiv);
 });
+window.onhashchange= function(){    document.body.innerHTML=""; }

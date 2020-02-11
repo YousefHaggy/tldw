@@ -44,6 +44,7 @@ def summarize():
 	summary=get_transcript(video_id, percent_to_summarize)
 	return {"result":summary}
 
-
+if __name__=="__main__":
+	app.run(host='0.0.0.0')
 
 

@@ -1,0 +1,5 @@
+flask
+gunicorn
+spacy
+youtube_transcript_api
+flask_cors
