@@ -13,6 +13,7 @@ def get_transcript(video_id, percent):
 	try:
 		transcript = YouTubeTranscriptApi.get_transcript(
 					 video_id,languages=["en"])
+		print(transcript)
 	except:
 		return {"error":"No transcript found"}
 	transcript_string = " "
@@ -22,7 +23,7 @@ def get_transcript(video_id, percent):
 
 def identify_sentences(transcript_string, percent):
 	nlp = spacy.load("en_core_web_sm")
-	doc = nlp(transcript_string)
+	doc = nlp(transcript_string.lower())
 	sentences = doc.sents
 	transcript_with_sentences=""
 	num_sentences = 0

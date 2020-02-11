@@ -2,6 +2,7 @@ chrome.runtime.onMessage.addListener(
 	function(request,sender, sendResponse){
 		if (document.getElementById("summary")!=null)
 			document.getElementById("summary").remove();
+		sendResponse();
 		let newDiv = document.createElement("div");
 		newDiv.setAttribute("id","summary");
 		let header = document.createElement("h4");
