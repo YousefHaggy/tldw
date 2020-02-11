@@ -1,5 +1,7 @@
 chrome.runtime.onMessage.addListener(
 	function(request,sender, sendResponse){
+		if (document.getElementById("summary")!=null)
+			document.getElementById("summary").remove();
 		let newDiv = document.createElement("div");
 		newDiv.setAttribute("id","summary");
 		let header = document.createElement("h4");
@@ -10,4 +12,3 @@ chrome.runtime.onMessage.addListener(
 		let primaryInner = document.getElementById("info");
 		primaryInner.appendChild(newDiv);
 });
-window.onhashchange= function(){    document.body.innerHTML=""; }
