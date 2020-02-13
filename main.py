@@ -13,7 +13,6 @@ def get_transcript(video_id, percent):
 	try:
 		transcript = YouTubeTranscriptApi.get_transcript(
 					 video_id,languages=["en"])
-		print(transcript)
 	except:
 		return {"error":"No transcript found"}
 	transcript_string = " "
@@ -36,14 +35,16 @@ def get_summary(transcript, percent, num_sentences):
 	api_url= ("http://api.smmry.com/&SM_API_KEY=%s&SM_LENGTH=%s" 
 			% (SMMRY_API_KEY,summary_length))
 	r = requests.post(api_url, data={"sm_api.input":transcript})
-	return r.json()["sm_api_content"]
+	if "sm_api_content" not in r.json():
+		return {"error":"No transcript found, or transcript too short!"}
+	return {"result":r.json()["sm_api_content"]}
 
 @app.route("/")
 def summarize():
 	video_id = request.args.get("video_id")
 	percent_to_summarize= request.args.get("percent")
 	summary=get_transcript(video_id, percent_to_summarize)
-	return {"result":summary}
+	return summary
 
 if __name__=="__main__":
 	app.run(host='0.0.0.0')
